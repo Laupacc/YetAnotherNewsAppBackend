@@ -23,7 +23,8 @@ router.get('/business', (req, res) => {
             res.json({ articles });
         })
         .catch(error => {
-            res.json({ articles: [] });
+            console.error("Error fetching news:", error);
+            res.status(500).json({ error: "Failed to fetch news" });
         });
 });
 router.get('/entertainment', (req, res) => {
