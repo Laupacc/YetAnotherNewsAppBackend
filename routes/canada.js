@@ -18,20 +18,32 @@ router.get('/business', (req, res) => {
         });
 });
 
-
-
-
 router.get('/entertainment', (req, res) => {
-    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=ca&category=entertainment`)
+    const page = req.query.page || 1; // Get the page from the request, or default to 1
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=ca&category=entertainment&page=${page}`)
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                res.json({ articles: data.results });
+                res.json({ articles: data.results, nextPage: parseInt(page, 10) + 1 });
             } else {
                 res.json({ articles: [] });
             }
         });
 });
+
+
+
+// router.get('/entertainment', (req, res) => {
+//     fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=ca&category=entertainment`)
+//         .then(response => response.json())
+//         .then(data => {
+//             if (data.status === 'success') {
+//                 res.json({ articles: data.results });
+//             } else {
+//                 res.json({ articles: [] });
+//             }
+//         });
+// });
 
 
 router.get('/general', (req, res) => {
