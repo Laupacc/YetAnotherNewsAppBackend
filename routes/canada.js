@@ -19,17 +19,20 @@ router.get('/business', (req, res) => {
 });
 
 
+
+
 router.get('/entertainment', (req, res) => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=ca&category=entertainment&apiKey=${NEWS_API_KEY}`)
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=ca&category=entertainment`)
         .then(response => response.json())
         .then(data => {
-            if (data.status === 'ok') {
-                res.json({ articles: data.articles });
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
             } else {
                 res.json({ articles: [] });
             }
         });
 });
+
 
 router.get('/general', (req, res) => {
     fetch(`https://newsapi.org/v2/top-headlines?country=ca&category=general&apiKey=${NEWS_API_KEY}`)
