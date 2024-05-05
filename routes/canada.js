@@ -71,12 +71,19 @@ router.get('/sports', (req, res) => {
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                res.json({ articles: data.results });
+                // Remove duplicate titles
+                const uniqueArticles = removeDuplicates(data.results, 'title');
+                res.json({ articles: uniqueArticles });
             } else {
                 res.json({ articles: [] });
             }
+        })
+        .catch(error => {
+            console.error('Error fetching sports news:', error);
+            res.status(500).json({ error: 'Failed to fetch sports news data' });
         });
 });
+
 
 router.get('/technology', (req, res) => {
     fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=ca&category=technology&image=1&language=en`)
@@ -90,6 +97,17 @@ router.get('/technology', (req, res) => {
         });
 });
 
+function removeDuplicates(arr, prop) {
+    const unique = [];
+    const titles = new Set();
+    for (const item of arr) {
+        if (!titles.has(item[prop])) {
+            titles.add(item[prop]);
+            unique.push(item);
+        }
+    }
+    return unique;
+}
 
 
 module.exports = router;
