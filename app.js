@@ -9,6 +9,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var unitedstatesRouter = require('./routes/unitedstates');
 var canadaRouter = require('./routes/canada');
+var unitedkingdomRouter = require('./routes/unitedkingdom');
+var franceRouter = require('./routes/france');
 
 var app = express();
 
@@ -25,6 +27,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/unitedstates', unitedstatesRouter);
 app.use('/canada', canadaRouter);
+app.use('/unitedkingdom', unitedkingdomRouter);
+app.use('/france', franceRouter);
 
 module.exports = app;
 
