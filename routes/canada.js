@@ -7,7 +7,7 @@ const NEWS_API_KEY = process.env.NEWS_API_KEY;
 
 
 router.get('/business', (req, res) => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=ca&category=business&apiKey=${NEWS_API_KEY}`)
+    fetch(`https://newsdata.io/api/1/news?country=ca&category=business?apikey=${NEWS_API_KEY}`)
         .then(response => response.json())
         .then(data => {
             if (data.status === 'ok') {
