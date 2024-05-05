@@ -7,11 +7,11 @@ const NEWS_API_KEY = process.env.NEWS_API_KEY;
 
 
 router.get('/business', (req, res) => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=fr&category=business&apiKey=${NEWS_API_KEY}`)
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=fr&category=business&image=1`)
         .then(response => response.json())
         .then(data => {
-            if (data.status === 'ok') {
-                res.json({ articles: data.articles });
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
             } else {
                 res.json({ articles: [] });
             }
@@ -20,23 +20,23 @@ router.get('/business', (req, res) => {
 
 
 router.get('/entertainment', (req, res) => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=fr&category=entertainment&apiKey=${NEWS_API_KEY}`)
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=fr&category=entertainment&image=1`)
         .then(response => response.json())
         .then(data => {
-            if (data.status === 'ok') {
-                res.json({ articles: data.articles });
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
             } else {
                 res.json({ articles: [] });
             }
         });
 });
 
-router.get('/general', (req, res) => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=fr&category=general&apiKey=${NEWS_API_KEY}`)
+router.get('/top', (req, res) => {
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=fr&category=top&image=1`)
         .then(response => response.json())
         .then(data => {
-            if (data.status === 'ok') {
-                res.json({ articles: data.articles });
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
             } else {
                 res.json({ articles: [] });
             }
@@ -44,11 +44,11 @@ router.get('/general', (req, res) => {
 });
 
 router.get('/health', (req, res) => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=fr&category=health&apiKey=${NEWS_API_KEY}`)
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=fr&category=health&image=1`)
         .then(response => response.json())
         .then(data => {
-            if (data.status === 'ok') {
-                res.json({ articles: data.articles });
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
             } else {
                 res.json({ articles: [] });
             }
@@ -56,11 +56,11 @@ router.get('/health', (req, res) => {
 });
 
 router.get('/science', (req, res) => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=fr&category=science&apiKey=${NEWS_API_KEY}`)
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=fr&category=science&image=1`)
         .then(response => response.json())
         .then(data => {
-            if (data.status === 'ok') {
-                res.json({ articles: data.articles });
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
             } else {
                 res.json({ articles: [] });
             }
@@ -68,11 +68,11 @@ router.get('/science', (req, res) => {
 });
 
 router.get('/sports', (req, res) => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=fr&category=sports&apiKey=${NEWS_API_KEY}`)
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=fr&category=sports&image=1`)
         .then(response => response.json())
         .then(data => {
-            if (data.status === 'ok') {
-                res.json({ articles: data.articles });
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
             } else {
                 res.json({ articles: [] });
             }
@@ -80,11 +80,11 @@ router.get('/sports', (req, res) => {
 });
 
 router.get('/technology', (req, res) => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=fr&category=technology&apiKey=${NEWS_API_KEY}`)
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=fr&category=technology&image=1`)
         .then(response => response.json())
         .then(data => {
-            if (data.status === 'ok') {
-                res.json({ articles: data.articles });
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
             } else {
                 res.json({ articles: [] });
             }
