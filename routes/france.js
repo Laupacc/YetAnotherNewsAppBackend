@@ -91,6 +91,66 @@ router.get('/technology', (req, res) => {
         });
 });
 
+router.get('/education', (req, res) => {
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=fr&category=education&image=1&language=fr`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
+            } else {
+                res.json({ articles: [] });
+            }
+        });
+});
+
+router.get('/environment', (req, res) => {
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=fr&category=environment&image=1&language=fr`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
+            } else {
+                res.json({ articles: [] });
+            }
+        });
+});
+
+router.get('/food', (req, res) => {
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=fr&category=food&image=1&language=fr`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
+            } else {
+                res.json({ articles: [] });
+            }
+        });
+});
+
+router.get('/lifestyle', (req, res) => {
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=fr&category=lifestyle&image=1&language=fr`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
+            } else {
+                res.json({ articles: [] });
+            }
+        });
+});
+
+router.get('/politics', (req, res) => {
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=fr&category=politics&image=1&language=fr`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
+            } else {
+                res.json({ articles: [] });
+            }
+        });
+});
+
 
 
 module.exports = router;

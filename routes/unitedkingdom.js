@@ -30,7 +30,6 @@ router.get('/entertainment', (req, res) => {
         });
 });
 
-
 router.get('/top', (req, res) => {
     fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=gb&category=top&image=1&language=en`)
         .then(response => response.json())
@@ -42,7 +41,6 @@ router.get('/top', (req, res) => {
             }
         });
 });
-
 
 router.get('/health', (req, res) => {
     fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=gb&category=health&image=1&language=en`)
@@ -56,7 +54,6 @@ router.get('/health', (req, res) => {
         });
 });
 
-
 router.get('/science', (req, res) => {
     fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=gb&category=science&image=1&language=en`)
         .then(response => response.json())
@@ -68,7 +65,6 @@ router.get('/science', (req, res) => {
             }
         });
 });
-
 
 router.get('/sports', (req, res) => {
     fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=gb&category=sports&image=1&language=en`)
@@ -82,7 +78,6 @@ router.get('/sports', (req, res) => {
         });
 });
 
-
 router.get('/technology', (req, res) => {
     fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=gb&category=technology&image=1&language=en`)
         .then(response => response.json())
@@ -95,7 +90,65 @@ router.get('/technology', (req, res) => {
         });
 });
 
+router.get('/education', (req, res) => {
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=gb&category=education&image=1&language=en`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
+            } else {
+                res.json({ articles: [] });
+            }
+        });
+});
 
+router.get('/environment', (req, res) => {
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=gb&category=environment&image=1&language=en`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
+            } else {
+                res.json({ articles: [] });
+            }
+        });
+});
+
+router.get('/food', (req, res) => {
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=gb&category=food&image=1&language=en`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
+            } else {
+                res.json({ articles: [] });
+            }
+        });
+});
+
+router.get('/lifestyle', (req, res) => {
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=gb&category=lifestyle&image=1&language=en`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
+            } else {
+                res.json({ articles: [] });
+            }
+        });
+});
+
+router.get('/politics', (req, res) => {
+    fetch(`https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&country=gb&category=politics&image=1&language=en`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                res.json({ articles: data.results });
+            } else {
+                res.json({ articles: [] });
+            }
+        });
+});
 
 
 module.exports = router;
